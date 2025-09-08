@@ -1,0 +1,73 @@
+//Toba Mohaqqeq
+//COMSC-210
+//Lab3A
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Restaurant struct
+struct Restaurant {
+    string name;
+    string address;
+    string cuisineType;
+    double rating;       
+    int priceRange;      
+};
+
+// Function to create a Restaurant asking the user for input
+Restaurant createRestaurant() {
+    Restaurant r;
+    cout << "Enter a restaurant's name: ";
+    getline(cin, r.name);
+
+    cout << "Enter the restaurant's  address: ";
+    getline(cin, r.address);
+
+    cout << "Enter the type of cuisine: ";
+    getline(cin, r.cuisineType);
+
+    cout << "Enter  the rating (0.0 - 5.0): ";
+    cin >> r.rating;
+    cin.ignore();
+    cout << "Enter the price range (1 = $, 5 = $$$$$): ";
+    cin >> r.priceRange;
+    cin.ignore(); // it clears the newline after int input
+    return r;
+}
+
+// Function to show restaurant's information
+void displayRestaurant(const Restaurant& r) {
+    cout << "\n--- Restaurant Information ---\n";
+    cout << "Name       : " << r.name << endl;
+    cout << "Address    : " << r.address << endl;
+    cout << "Cuisine    : " << r.cuisineType << endl;
+    cout << "Rating     : " << r.rating << " / 5.0" << endl;
+    cout << "Price Range: ";
+    for (int i = 0; i < r.priceRange; i++) cout << "$";
+    cout << endl;
+}
+
+int main() {
+    // Creates four different restaurants
+    cout << "Enter details for Restaurant 1:\n";
+    Restaurant r1 = createRestaurant();
+
+    cout << "Enter details for Restaurant 2:\n";
+    Restaurant r2 = createRestaurant();
+
+    cout << "Enter details for Restaurant 3:\n";
+    Restaurant r3 = createRestaurant();
+
+    cout << "Enter details for Restaurant 4:\n";
+    Restaurant r4 = createRestaurant();
+
+    
+    // shows  restaurants
+    displayRestaurant(r1);
+    displayRestaurant(r2);
+    displayRestaurant(r3);
+    displayRestaurant(r4);
+
+    return 0;
+}
